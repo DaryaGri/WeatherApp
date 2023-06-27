@@ -39,7 +39,7 @@ class HoursFragment : Fragment() {
 
     private fun initRecyclerView() = with(binding) {
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = WeatherAdapter()
+        adapter = WeatherAdapter(null)
         recyclerView.adapter = adapter
 
     }
@@ -53,7 +53,7 @@ class HoursFragment : Fragment() {
                 (hoursArray[i] as JSONObject).getString("time"),
                 (hoursArray[i] as JSONObject).getJSONObject("condition")
                     .getString("text"),
-                (hoursArray[i] as JSONObject).getString("temp_c"),
+                (hoursArray[i] as JSONObject).getString("temp_c").toFloat().toInt().toString(),
                 "",
                 "",
                 (hoursArray[i] as JSONObject).getJSONObject("condition")
